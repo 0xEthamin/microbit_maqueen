@@ -1,16 +1,21 @@
 [package]
 name = "microbit_maqueen"
-version = "0.1.0"
-edition = "2024"
+version = "0.2.0"
+edition = "2021"
 
 [dependencies]
 cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
 cortex-m-rt = "0.7"
+cortex-m-rtic = "1.1"
+microbit = "0.16.0"
+nrf51-hal = "0.19.0"
+embedded-hal = "1.0.0"
 panic-halt = "1.0"
-microbit = "0.16"
-embedded-hal = "1.0"
 
 [profile.release]
-opt-level = "z"     # taille minimale
+opt-level = "z"
 lto = true
 codegen-units = 1
+debug = true
+strip = false
+overflow-checks = false
